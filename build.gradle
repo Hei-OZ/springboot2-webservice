@@ -1,5 +1,5 @@
 buildscript {
-    ext {
+    ext {   // etx : 전역변수 설정
         springBootVersion = '2.1.7.RELEASE'
     }
     repositories {
@@ -14,18 +14,23 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'io.spring.dependency-management' // 스프링부트 의존성 관리 플러그인. 반드시 추가해야 함.
+// 위 4개의 플러그인은 스프링 부트를 사용하기 위한 필수 플러그인
 
 group 'com.springboot.book'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
-repositories {
+repositories {  // 각종 의존성(라이브러리)을 받아 올 원격 저장소
     mavenCentral()
     jcenter()
 }
 
-dependencies {
+dependencies {  // 프로젝트 개발에 필요한 의존성 선언
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok') // 롬복추가
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')    // 스프링부트용 Spring Data Jpa 추상화 라이브러리. 스프링부트 버전에 맞춰 자동으로 JPA 라이브러리 버전 관리
+    compile('com.h2database:h2:')   // 인메모리 관계형 데이터베이스. 별도 설치 필요 없이 프로젝트 의존성만으로 관리 가능. 메모리에서 실행되기에 애플리케이션 재시작할 때마다 초기화 되기에 테스트용도로 많이 사용 됨. TEST 및 Local 환경 구동에서 사용
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
