@@ -3,20 +3,21 @@ package com.springboot.book.jojoldu.web.dto;
 import com.springboot.book.jojoldu.domain.posts.Posts;
 import lombok.Getter;
 
-/** 게시글 1건 응답 DTO */
+import java.time.LocalDateTime;
+
+/** 게시글 LIST 응답 DTO */
 @Getter
-public class PostsResponseDto {
+public class PostsListResponseDto {
 
     private Long id;
     private String title;
-    private String content;
     private String author;
+    private LocalDateTime modifiedDate;
 
-    // Entity의 필드 중 일부만 사용하므로 Entity를 받아 처리하도록 생성자 처리
-    public PostsResponseDto(Posts entity) {
+    public PostsListResponseDto(Posts entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
-        this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.modifiedDate = entity.getModifiedDate();
     }
 }

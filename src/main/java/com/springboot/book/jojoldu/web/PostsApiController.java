@@ -7,9 +7,11 @@ import com.springboot.book.jojoldu.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+/** 게시글 API 컨트롤러 */
 @RequiredArgsConstructor // 롬복. 선언된 모든 final 필드가 포함된 생성자 생성. final 없으면 포함 안 됨
 @RestController
 public class PostsApiController {
+
 
     private final PostsService postsService;
 
@@ -29,5 +31,12 @@ public class PostsApiController {
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
+    }
+
+    // DELETE => DELETE 기능 => 삭제
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
     }
 }

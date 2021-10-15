@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/** 게시글 도메인 Entity 클래스 - 테이블과 매칭되는 클래스 */
 // 코딩시 주요 어노테이션을 클래스에 가깝게 둔다. 롬복이 더이상 필요없을 경우 걷어내기 쉽다.
 @Getter
 @NoArgsConstructor  // 롬복 어노테이션. 기본생성자 자동 추가. public Posts(){} <= 추가 됨

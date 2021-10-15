@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/** 게시글 업데이트 요청 DTO */
 @Getter
 @NoArgsConstructor
 public class PostsUpdateRequestDto {

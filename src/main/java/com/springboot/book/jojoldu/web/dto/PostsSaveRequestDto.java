@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/** 게시글 저장 요청 DTO */
 @Getter
 @NoArgsConstructor  // 롬복. 기본생성자 자동 추가. public PostsSaveRequestDto(){} <= 추가 됨
 public class PostsSaveRequestDto {
