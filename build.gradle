@@ -33,5 +33,10 @@ dependencies {  // 프로젝트 개발에 필요한 의존성 선언
     compile('com.h2database:h2:')   // 인메모리 관계형 데이터베이스 h2 추가. 별도 설치 필요 없이 프로젝트 의존성만으로 관리 가능. 메모리에서 실행되기에 애플리케이션 재시작할 때마다 초기화 되기에 테스트용도로 많이 사용 됨. TEST 및 Local 환경 구동에서 사용
     compile('org.springframework.boot:spring-boot-starter-mustache')    // 템플릿 엔진 머스테치 추가
 
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')   // 스프링 시큐리티 oauth2 추가. 소셜로그인등 클라이언트 입장에서 소셜기능 구현시 필요한 의존성
+    // spring-security-oauth2-client 및 spring-security-oauth2-jose 를 기본 관리
+    compile('org.springframework.session:spring-session-jdbc')      // 세션을 WAS(톰캣) 아닌 DB(h2 db)에 저장하도록 구현시 필요한 의존성
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')    // 스프링 시큐리티 테스트 도구 추가
 }

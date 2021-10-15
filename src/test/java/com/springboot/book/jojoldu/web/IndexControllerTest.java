@@ -22,8 +22,7 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);    // getForObject : 주어진 url 주소로 HTTP GET메서드 객체로 결과를 반환 받는다.
 
         System.out.println(">>>>>>>>> body : " + body);
-        /**
-         * >>>>>>>>> body : <!doctype html>
+        /* >>>>>>>>> body : <!doctype html>
          * <html lang="ko">
          * <head>
          *     <meta charset="UTF-8">
