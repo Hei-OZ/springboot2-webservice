@@ -4,7 +4,6 @@ import com.springboot.book.jojoldu.config.auth.LoginUser;
 import com.springboot.book.jojoldu.config.auth.dto.SessionUser;
 import com.springboot.book.jojoldu.service.posts.PostsService;
 import com.springboot.book.jojoldu.web.dto.PostsResponseDto;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

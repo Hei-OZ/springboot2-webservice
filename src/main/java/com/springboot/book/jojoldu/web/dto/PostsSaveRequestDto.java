@@ -1,7 +1,6 @@
 package com.springboot.book.jojoldu.web.dto;
 
 import com.springboot.book.jojoldu.domain.posts.Posts;
-import javafx.geometry.Pos;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
