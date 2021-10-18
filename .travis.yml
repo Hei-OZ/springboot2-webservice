@@ -16,6 +16,10 @@ cache:
 # master 브랜치에 푸시 일어났을 때 수행하는 명령어. gradlew 를 통해 clean & build 하도록 설정.
 script: "./gradlew clean build"
 
+# /home/travis/.travis/functions: line 351: ./gradlew: Permission denied 에러 발생하여 실행권한 추가
+before_install:
+  - chmod +x gradlew
+
 # CI 실행 완료 시 메일로 알람.
 notifications:
   email:
