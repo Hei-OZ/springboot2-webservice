@@ -7,16 +7,16 @@ branches:
   only:
     - master
 
-# Travis CI 서버의 Home 설정. 그레이들 의존성 받게 되면 해당 디렉토리에 캐싱하여 같은 의존성은 다음 배포때부터 다시 받지 않도록 설정
+# Travis CI 서버의 Home 설정. 그레이들 의존성 받게 되면 해당 디렉토리에 캐싱하여 같은 의존성은 다음 배포때부터 다시 받지 않도록 설정.
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-# master 브랜치에 푸시 일어났을 때 수행하는 명령어. gradlew 를 통해 clean & build 하도록 설정
+# master 브랜치에 푸시 일어났을 때 수행하는 명령어. gradlew 를 통해 clean & build 하도록 설정.
 script: "./gradlew clean build"
 
-# CI 실행 완료 시 메일로 알람
+# CI 실행 완료 시 메일로 알람.
 notifications:
   email:
     recipients:
