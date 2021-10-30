@@ -20,6 +20,24 @@ script: "./gradlew clean build"
 before_install:
   - chmod +x gradlew
 
+# deploy 명령어 실행되기 전 수행하게 하는 명령어
+before_deploy:  # CodeDeploy 는 Jar 파일 인식 못하기에 Jar+기타설정 파일들을 모아 zip으로 압축
+  - zip -r springboot2-webservice *   # 현재 모든 파일을 프로젝트명으로 압축
+  - mkdir -p deploy     # deploy 폴더 Travis CI가 실행중인 위치에서 생성
+  - mv springboot2-webservice.zip deploy/springboot2-webservice.zip # 압축파일을 deploy/아래로 이동
+
+# S3로 파일 업로드 or CodeDeploy로 배포 등 외부 서비스와 연동될 행위를 선언
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY  # Travis repo settings 에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY  # Travis repo settings 에 설정된 값
+    bucket: freelect-springboot-ex-build  # S3 버킷 이름
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private  # zip 파일 접근을 private 으로 설정
+    local_dir: deploy # before_deploy 에서 생성한 디렉토리. 해당 위치의 파일들만 S3으로 전송
+    wait-untile-deployed: true
+
 # CI 실행 완료 시 메일로 알람.
 notifications:
   email:
