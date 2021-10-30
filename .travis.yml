@@ -27,7 +27,7 @@ before_deploy:  # CodeDeploy 는 Jar 파일 인식 못하기에 Jar+기타설정
   - cp scripts/*.sh before-deploy/  # 스크립트 파일 복사
   - cp appspec.yml before-deploy/   # CodeDeploy 설정 파일 복사
   - cp build/libs/*.jar before-deploy/  # 웹소스 복사
-  - cd before-deploy && zip -r before-deploy  # zip 파일로 압축
+  - cd before-deploy && zip -r before-deploy *  # zip 파일로 압축
   - cd ../ && mkdir -p deploy   # deploy 폴더 생성. Travis CI가 S3에 디렉토리 단위로만 업로드 가능하므로 deploy 폴더는 항상 생성해야 함
   - mv before-deploy/before-deploy.zip deploy/springboot2-webservice.zip  # deploy 폴더로 zip 파일 이동
 
