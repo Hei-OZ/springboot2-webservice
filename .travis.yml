@@ -41,14 +41,14 @@ deploy:
     skip_cleanup: true
     acl: private  # zip 파일 접근을 private 으로 설정
     local_dir: deploy # before_deploy 에서 생성한 디렉토리. 해당 위치의 파일들만 S3으로 전송
-    wait-untile-deployed: true
+    wait-until-deployed: true
 
   - provider: codedeploy  # CodeDeploy 설정
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: freelect-springboot-ex-build
     key: springboot2-webservice.zip # 빌드파일을 압축해서 전달 함
-    build_type: zip
+    bundle_type: zip
     application: springboot2-webservice # CodeDeploy 애플리케이션명
     deployment_group: springboot2-webservice-group  # CodeDeploy 배포 그룹
     region: ap-northeast-2
