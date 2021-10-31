@@ -12,7 +12,7 @@ function find_idle_profile()
   then
     CURRENT_PROFILE=real2
   else
-    CURRENT_PROFILE=$(curl -s http://localhost/profile)
+    CURRENT_PROFILE=$(curl -s http://localhost/profile) # 책에는 real1 이라고 나와 있지만, 실제 코드는 $(curl -s http://localhost/profile)
   fi
 
   if [ ${CURRENT_PROFILE} == real1 ]

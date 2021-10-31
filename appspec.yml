@@ -26,9 +26,8 @@ hooks:
       runas: ec2-user
   ValidateService:
     - location: health.sh   # start.sh 로 실행시킨 새 스프링 부트가 정상적으로 실행됐는지 확인
-      timeout: 60
+      timeout: 60   # yml 파일은 : 다음에 꼭 한 칸을 띄워야 한다. 아니면 에러 남. 이거 때문에 한참 고생함.
       runas: ec2-user
 
 # switch.sh   Nginx 가 바라보는 스프링 부트를 최신 버전으로 변경
 # profile.sh  앞선 4개 스크립트 파일에서 공용으로 사용할 'profile' 과 포트 체크 로직
-# yml 파일은 : 다음에 꼭 한 칸을 띄워야 한다. 아니면 에러 남.
