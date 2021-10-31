@@ -18,7 +18,7 @@ apply plugin: 'io.spring.dependency-management' // 스프링부트 의존성 관
 // 위 4개의 플러그인은 스프링 부트를 사용하기 위한 필수 플러그인
 
 group 'com.springboot.book'
-version '1.0.1-SNAPSHOT'
+version '1.0.1-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
 sourceCompatibility = 1.8
 
 repositories {  // 각종 의존성(라이브러리)을 받아 올 원격 저장소
